@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.minieyes.practice.p03.dao.RealEstateDAO">
+	
+	<select
+	id="selectRealEstate"
+	resultType="com.minieyes.practice.p03.model.RealEstate"
+	parameterType="int">
+		SELECT
+			`id`
+			, `realtorId`
+			, `address`
+			, `area`
+			, `type`
+			, `price`
+			, `rentPrice`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`real_estate`
+		WHERE
+			`id` = #{id}	
+	</select>
+	
+	<select
+	id="selectRentPriceRealEstateList"
+	resultType="com.minieyes.practice.p03.model.RealEstate"
+	parameterType="int">
+		SELECT
+			`id`
+			, `realtorId`
+			, `address`
+			, `area`
+			, `type`
+			, `price`
+			, `rentPrice`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`real_estate`
+		WHERE
+			`type` = '월세'
+			AND
+			`rentPrice` &lt; #{rentPrice}	
+	</select>
+	
+	<select
+	id="selectAreaPriceRealEstateList"
+	resultType="com.minieyes.practice.p03.model.RealEstate"
+	parameterType="int">
+		SELECT
+			`id`
+			, `realtorId`
+			, `address`
+			, `area`
+			, `type`
+			, `price`
+			, `rentPrice`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`real_estate`
+		WHERE
+			`type` = '매매'
+			AND
+			(`price` &lt; 130000 AND
+		    `area` &gt; 90 );	
+	</select>
+
+
+</mapper>
