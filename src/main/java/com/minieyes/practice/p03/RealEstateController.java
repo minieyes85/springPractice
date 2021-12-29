@@ -40,5 +40,37 @@ public class RealEstateController {
 		return realEstateBO.getAreaPriceRealEstateList(area, price);
 		
 	}
+	
+	@RequestMapping("/p03/04")
+	public String practice04() {
+		
+		RealEstate realEstate = new RealEstate();
+		realEstate.setRealtorId(3);
+		realEstate.setAddress("푸르지용 리버 303동 1104호");
+		realEstate.setArea(89);
+		realEstate.setType("매매");
+		realEstate.setPrice(100000);
+		
+		int count = realEstateBO.insertRealEstate(realEstate);
+		String output = "입력 성공 : " + count;
+		
+		return output;
+	}
+	
+	@RequestMapping("/p03/05")
+	public String practice05(
+			@RequestParam("realtorId") int realtorId) {
+		
+		String address = "썅떼빌리버 오피스텔 814호";
+		int area = 45;
+		String type = "월세";
+		int price = 100000;
+		int rentPrice = 120;
+		
+		int count = realEstateBO.insertRealEstateField(realtorId, address, area, type, price, rentPrice);
+		String output = "입력 성공 : " + count;
+		
+		return output;
+	}
 
 }
