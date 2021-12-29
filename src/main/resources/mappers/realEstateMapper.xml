@@ -45,7 +45,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE
 			`type` = '월세'
 			AND
-			`rentPrice` &lt; #{rentPrice}	
+			<![CDATA[`rentPrice` < #{rentPrice}]]>	
 	</select>
 	
 	<select
@@ -67,8 +67,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE
 			`type` = '매매'
 			AND
-			(`price` &lt; 130000 AND
-		    `area` &gt; 90 );	
+			<![CDATA[(`price` < 130000 AND
+		    `area` > 90 )]]>	
 	</select>
 	
 	<insert
@@ -108,6 +108,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			,#{price}
 			,#{rentPrice})
 	</insert>
+	
+	<update
+	id="updateRealEstate"
+	parameterType="map">
+		UPDATE
+			`real_estate`
+		SET
+			`type` = #{newType}
+			,`price` = #{newPrice}
+		WHERE
+			`id` = #{id}	
+	</update>
+	
+	<delete
+	id="deleteRealEstate"
+	parameterType="int">
+		DELETE FROM
+			`real_estate`
+		WHERE
+			`id` = #{id}
+	</delete>
 	
 
 
