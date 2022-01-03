@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.minieyes.practice.p05.bo.JSTLBO;
+import com.minieyes.practice.p05.model.Member;
 
 @Controller
 @RequestMapping("/p05")
@@ -49,6 +50,20 @@ public class JSTLController {
 		
 		model.addAttribute("candidatesInfo", candidatesInfo);
 		
+		List<Map<String,Object>> cardBills = jstlBO.getCardBills();
+		
+		model.addAttribute("cardBills", cardBills);		
+		
 		return "/practice05/03";
+	}
+	
+	@RequestMapping("/04")
+	public String practice04(Model model) {
+		
+		List<Member> members = jstlBO.getMemberList();
+		
+		model.addAttribute("members", members);
+		
+		return "/practice05/04";
 	}
 }
