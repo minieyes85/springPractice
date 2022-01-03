@@ -61,6 +61,9 @@
 		</div>
 		<c:set var="times" value="${number1*number2}" />
 		<c:if test="${times > 100}">
+		<script>
+			alert("너무 큰 수 입니다.");
+		</script>
 		</c:if>
 		
 	</div>
