@@ -1,0 +1,29 @@
+#navArea {
+	width : 250px;
+	height : auto;
+	background-color : #6495EC;
+}
+
+#logo {
+	height: 100px;
+}
+
+#logoImg {
+	width : 45px;
+	height : 45px;
+}
+
+#logoText {
+	font-size: 30px;
+}
+
+#infoArea {
+	width : 1000px;
+}
+
+footer {
+}
+
+#footerLogo {
+	height : 65px;
+}
