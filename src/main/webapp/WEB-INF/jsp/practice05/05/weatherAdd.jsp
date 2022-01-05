@@ -41,7 +41,7 @@
 
 			<jsp:include page="nav.jsp" />
 
-			<jsp:include page="weatherHistory.jsp" />
+			<jsp:include page="addWeather.jsp" />
 
 		</div>
 

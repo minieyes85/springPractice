@@ -21,4 +21,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM
 			`weatherhistory`
 	</select>
+	
+	<insert id="insertWeatherHistory"
+	parameterType="com.minieyes.practice.p05.model.WeatherHistory">
+		INSERT INTO
+			`weatherhistory`
+			(`date`
+			, `weather`
+			, `temperatures`
+			, `precipitation`
+			, `microDust`
+			, `windSpeed`)
+		VALUE
+			(#{date}
+			,#{weather}
+			,#{temperatures}
+			,#{precipitation}
+			,#{microDust}
+			,#{windSpeed})
+	</insert>
 </mapper>
