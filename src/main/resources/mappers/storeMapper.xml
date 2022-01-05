@@ -19,6 +19,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM
 			`store`
 	</select>
+	
+	<select id="selectStoreReviewList"
+	resultType="com.minieyes.practice.p05.model.Review"
+	parameterType="int">
+		SELECT
+			Re.storeName
+		    ,Re.userName
+		    ,Re.point
+		    ,Re.review
+		    ,Re.menu
+		    ,Re.createdAt
+		FROM `store` AS St
+		JOIN `review` AS Re
+		ON St.name = Re.storeName
+		WHERE St.id = #{id}	
+	</select>
 
 
 </mapper>
