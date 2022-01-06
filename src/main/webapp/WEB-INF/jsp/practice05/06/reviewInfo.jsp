@@ -24,6 +24,7 @@
 								</c:when>
 								<c:when test="${point < 1 && point > 0 }">
 									<img src="/resources/static/img/star_half.png" width="25px">
+									<c:set var="point" value="${point-1 }" />
 								</c:when>
 								<c:otherwise>
 									<img src="/resources/static/img/star_empty.png" width="25px">
