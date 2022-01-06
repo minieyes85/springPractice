@@ -7,7 +7,7 @@
 	<div>
 		<c:forEach var="storeList" items="${storeList }">
 			<div class="border border-info rounded p-4 mb-3"
-				OnClick="location.href ='/p05/06_storeInfo?id=${storeList.id }'"
+				OnClick="location.href ='/p05/06_storeInfo?id=${storeList.id }&storeName=${storeList.name }'"
 				style="cursor: pointer;">
 				<div class="h2 ml-2 font-weight-bold">${storeList.name }</div>
 				<div class="h4 ml-2">전화 번호 :

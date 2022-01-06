@@ -25,8 +25,11 @@ public class DeliveryController {
 	
 	@RequestMapping("/06_storeInfo")
 	public String StoreInfo(@RequestParam(value="id", required=true) int id,
-			Model model) {
+			@RequestParam(value="storeName", required=true) String storeName,
+			Model model) {		
+		model.addAttribute("storeName", storeName);
 		model.addAttribute("reviewList", storeBO.getStoreReviewList(id));
+		model.addAttribute("count", storeBO.getStoreReviewList(id).size());
 		return "/practice05/06/deliveryServiceReview";
 	}
 }
