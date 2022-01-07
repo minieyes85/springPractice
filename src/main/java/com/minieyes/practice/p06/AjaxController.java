@@ -1,11 +1,22 @@
 package com.minieyes.practice.p06;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.minieyes.practice.p06.bo.AjaxBO;
+import com.minieyes.practice.p06.model.Favorite;
 
 @Controller
 @RequestMapping("/p06")
 public class AjaxController {
+	
+	@Autowired
+	private AjaxBO ajaxBO;
 	
 	@RequestMapping("/test")
 	public String ajaxTest() {
@@ -18,10 +29,20 @@ public class AjaxController {
 		return "/practice06/01";
 	}
 	
-	@RequestMapping("/add")
-	public int addFavorite() {
+	@PostMapping("/add")
+	@ResponseBody
+	public int addFavorite(
+			@ModelAttribute Favorite favorite) {
 		
-		return 1;
+		return ajaxBO.addFavorite(favorite);
+	}
+	
+	@RequestMapping("/01_list")
+	public String showFavoriteList(Model model) {
+		
+		model.addAttribute("favoritesList", ajaxBO.showFavorites());
+		
+		return "/practice06/01List";
 	}
 
 }
