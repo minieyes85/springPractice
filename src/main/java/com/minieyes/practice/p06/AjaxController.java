@@ -12,16 +12,5 @@ public class AjaxController {
 		
 		return "/practice06/ajaxTest";
 	}
-	
-	@RequestMapping("/01")
-	public String practice01() {
-		return "/practice06/01";
-	}
-	
-	@RequestMapping("/add")
-	public int addFavorite() {
-		
-		return 1;
-	}
 
 }
