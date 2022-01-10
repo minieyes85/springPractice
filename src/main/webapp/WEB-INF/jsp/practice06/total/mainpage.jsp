@@ -26,21 +26,23 @@
 			<jsp:include page="header.jsp"/>
 
             <jsp:include page="nav.jsp"/>
-
-		<div>
-			<jsp:include page="img.jsp" />
-
-			<jsp:include page="article.jsp" />
-		</div>
-
-		<jsp:include page="footer.jsp"/>
+			
+			<div id="mainDiv">
+			<jsp:include page="mainSection.jsp" />
+			</div>
+		
+			<jsp:include page="footer.jsp"/>
 
         </div>
 
         <script>
 
             $(document).ready(function(){
-
+            	
+            	$("#reservation").on("click", function(){
+        			$("#mainDiv").load("/pension/reservation.do")
+        		});
+				            	
                 $.datepicker.setDefaults({
                     dateFormat: 'yy-mm-dd',
                     prevText: '이전 달',
@@ -137,12 +139,6 @@
                 });
                 
             });
-
-            
-
-
-
-
         </script>
     </body>
 </html>
