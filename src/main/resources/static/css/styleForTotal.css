@@ -1,0 +1,90 @@
+#wrap {
+    width: 1200px;
+}
+
+header {
+    /* height: 100px; */
+    font-size: 50px;
+    font-weight: lighter;
+}
+
+nav {
+    height: 40px;
+    background-color: #CD853E;
+}
+
+a {
+    font-size: large;
+    color: white;
+}
+
+a:hover {
+    color: black;
+    font-weight: bold;
+    background-color: white;
+}
+
+#img {
+    width: 100%;
+    object-fit: cover;
+}
+
+article {
+    height: 250px;
+    background-color: #A1522C;
+}
+
+#title {
+    width: 30%;
+
+}
+
+#titleText {
+    font-size: 50px;
+    font-weight: lighter;
+    color: white;
+}
+
+#bookCheck {
+    width: 40%;
+    background-color: #D16A1E;
+}
+
+#bookCheckTitle {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+}
+
+#isMemberRadio {
+    color: white;
+}
+
+#bookCheckInputPanel {
+    font-size: 15px;
+    color: white;
+}
+
+.inputKeys {
+    width: 100px;
+}
+
+.inputValues {
+    width: 250px;
+}
+
+#contact {
+    width: 30%;
+    font-size: 40px;
+    font-weight: bolder;
+    color: white;
+}
+
+#contactTitle {
+    font-size: 25px;
+}
+
+#companyInfo {
+    font-size: 11px;
+
+}
