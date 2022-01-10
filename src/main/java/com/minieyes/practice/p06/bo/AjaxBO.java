@@ -19,6 +19,10 @@ public class AjaxBO {
 		return ajaxDAO.insertFavorite(favorite);
 	}
 	
+	public int deleteFavorite(int id) {
+		return ajaxDAO.deleteFavorite(id);
+	}
+	
 	public List<Favorite> showFavorites() {
 		return ajaxDAO.selectFavorites();
 	}

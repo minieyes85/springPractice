@@ -20,10 +20,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectFavorites"
 	resultType="com.minieyes.practice.p06.model.Favorite">
 		SELECT
-			`name`
+			`id`
+			,`name`
 			,`url`
 		FROM
 			`favorite`	
 	</select>
+	
+	<delete id="deleteFavorite"
+	parameterType="int">
+		DELETE FROM
+			`favorite`
+		WHERE (`id` = #{id});
+	
+	</delete>
 
 </mapper>

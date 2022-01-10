@@ -13,4 +13,6 @@ public interface AjaxDAO {
 	
 	public List<Favorite> selectFavorites();
 	
+	public int deleteFavorite(int id);
+	
 }

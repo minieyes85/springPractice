@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.minieyes.practice.p06.bo.AjaxBO;
@@ -40,6 +41,12 @@ public class AjaxController {
 		return ajaxBO.addFavorite(favorite);
 	}
 	
+	@PostMapping("/delete")
+	@ResponseBody
+	public int deleteFavorite(@RequestParam("id") int id) {
+		return ajaxBO.deleteFavorite(id);		
+	}
+
 	@RequestMapping("/01_list")
 	public String showFavoriteList(Model model) {
 		
@@ -53,5 +60,6 @@ public class AjaxController {
 	public List<Favorite> callFavoritesList(){
 		return ajaxBO.showFavorites();
 	}
+	
 
 }

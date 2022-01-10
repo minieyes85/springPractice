@@ -37,18 +37,18 @@
 		<div class="mb-3">
 			제목 <input type="text" class="form-control" id="name">
 		</div>
-		<div class="mb-3">
+		<div>
 			주소
 			<div class="d-flex">
 				<input type="text" class="form-control mr-3" id="url">
 				<button type="button" class="btn btn-info" id="duplCheck">중복확인</button>
 			</div>
 		</div>
-		<div id="indicator">
-		
+		<div id="indicator" class="mb-4">
+			
 		</div>
 		<div class="mb-3">
-			<button type="button" class="btn btn-success btn-block" id="addBtn">추가</button>
+			<button type="button" class="btn btn-secondary btn-block" id="addBtn" disabled>중복체크 필요</button>
 		</div>
 
 	</div>
@@ -101,9 +101,16 @@
 					});
 					
 					if(flag) {
-						alert("ddd")
-						$("#indicator").attr('class="text-danger""');
-						$("#indicator").text("1111");
+						alert("중복검사 완료");
+						$("#indicator").attr("class", "text-danger");
+						$("#indicator").text("중복된 주소 입니다.");
+					} else {
+						alert("중복검사 완료");
+						$("#indicator").attr("class", "text-primary");
+						$("#indicator").text("등록 가능한 주소 입니다.");
+						$("#addBtn").removeAttr("disabled");
+						$("#addBtn").attr("class", "btn btn-success btn-block");
+						$("#addBtn").text("추가");
 					}
 				},
 				error : function() {
