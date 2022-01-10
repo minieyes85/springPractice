@@ -23,140 +23,17 @@
     <body>
 
         <div id="wrap" class="container">
-            <header class=" text-center">
-                통나무 펜션
-            </header>
+			<jsp:include page="header.jsp"/>
 
-            <nav>
-                <ul class="nav nav-fill">
-                    <li class="nav-item"><a class="nav-link" href="#">펜션소개</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">객실보기</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">예약안내</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">커뮤니티</a></li>
-                </ul>
+            <jsp:include page="nav.jsp"/>
 
-            </nav>
+		<div>
+			<jsp:include page="img.jsp" />
 
-            <section id="imgPanel">
-                <img id="img" src="/resources/static/img/pension/test06_banner1.jpg" alt="">
+			<jsp:include page="article.jsp" />
+		</div>
 
-            </section>
-
-            <article class="d-flex">
-                <div id="title" class="d-flex justify-content-center">
-                    <span id="titleText" class="m-5">
-                        실시간 <br>
-                        예약하기
-                    </span>
-
-                </div>
-
-                <div id="bookCheck">
-                    <div>
-                        <div class="d-flex align-items-end mt-3 ml-4">
-                            <div id="bookCheckTitle" class="mb-2">
-                                예약확인
-                            </div>
-                            <div id="isMemberRadio" class="d-flex">
-                                <div class="ml-3">
-                                    <label>회원<input type="radio" name="isMember" value="member" checked></label>
-                                </div>
-                                <div class="ml-3">
-                                    <label>비 회원<input type="radio" name="isMember" value="notMember"></label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div id="bookCheckInputPanel" class=" mt-2">
-                        <div id="memberPanel" class="">
-                            <div class="d-flex">
-                                <div class="inputKeys ml-3 mt-1 text-center">
-                                    아이디
-                                </div>
-                                <div class="inputValues">
-                                    <div class="input-group input-group-sm mb-2">
-                                        <input type="text" class="form-control" id="inputId">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="d-flex mt-1">
-                                <div class="inputKeys ml-3 mt-1 text-center">
-                                    비밀번호
-                                </div>
-                                <div class="inputValues">
-                                    <div class="input-group input-group-sm mb-2">
-                                        <input type="password" class="form-control" id="inputPw">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="notMemberPanel" class="d-none">
-                            <div class="d-flex">
-                                <div class="inputKeys ml-3 mt-1 text-center">
-                                    이름
-                                </div>
-                                <div class="inputValues">
-                                    <div class="input-group input-group-sm mb-2">
-                                        <input type="text" class="form-control" id="name">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex">
-                                <div class="inputKeys ml-3 mt-1 text-center">
-                                    전화번호
-                                </div>
-                                <div class="inputValues">
-                                    <div class="input-group input-group-sm mb-2">
-                                        <input type="text" class="form-control" id="phoneNumber">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex">
-                                <div class="inputKeys ml-3 mt-1 text-center">
-                                    날짜
-                                </div>
-                                <div class="inputValues">
-                                    <div class="input-group input-group-sm mb-2">
-                                        <input type="text" class="form-control" id="date">
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-end mt-3 mr-5">
-                        <div id="buttonPanel">
-                            <button type="button" class="btn btn-success" id="button">조회 하기</button>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div id="contact" class="d-flex justify-content-center">
-                    <div class="m-5">
-                        <div id="contactTitle">
-                            예약문의:
-                        </div>    
-                        <div id="contactNumber">
-                            010- <br>
-                            000-1111
-                        </div>
-                    </div>
-                </div>
-
-            </article>
-
-            <footer>
-                <div id="companyInfo" class="text-muted p-3">
-                    제주특별자치도 제주시 애월읍 <br>
-                    사업자등록번호: 111-22-333333 / 농어촌민박사업자지정 / 대표 : 최준선 <br>
-                    Copyright 2021 tongnamu All Right Reserved.
-                </div>
-
-            </footer>
+		<jsp:include page="footer.jsp"/>
 
         </div>
 
@@ -182,16 +59,16 @@
                 };
 
                 var imgs = ["test06_banner1.jpg" , "test06_banner2.jpg" , "test06_banner3.jpg" , "test06_banner4.jpg"]
-                var imgIndex = 0;
-                /*
+                var imgIndex = 1;
+                
                 setInterval(function(){
-                    $("#img").attr("src","/resources/static/img/"+imgs[imgIndex]);
+                    $("#img").attr("src","/resources/static/img/pension/"+imgs[imgIndex]);
                     imgIndex++;
                     if(imgIndex == 4){
                         imgIndex -= 4;
                     }
                 }, 3000);
-				*/
+				
 
                 $("input[name='isMember']").on("change",function(){
                     if($("input[name='isMember']:checked").val() == "notMember"){
@@ -258,7 +135,6 @@
                     }
 
                 });
-
                 
             });
 
