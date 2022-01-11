@@ -55,4 +55,12 @@ public class PensionController {
 		return bookingBO.makeBooking(booking);
 	}
 	
+	@RequestMapping("/findBooking.do")
+	@ResponseBody
+	public Booking findBooking(
+			@RequestParam("name") String name,
+			@RequestParam("phoneNumber") String phoneNumber) {
+		return bookingBO.findBooking(name, phoneNumber);
+	}
+	
 }

@@ -34,53 +34,5 @@
 			<jsp:include page="footer.jsp"/>
 
         </div>
-
-        <script>
-
-            $(document).ready(function(){
-            	
-            	$("#intro").on("click", function(){
-        			$("#mainDiv").load("/pension/main.do")
-        		});
-            	
-            	$("#reservation").on("click", function(){
-        			$("#mainDiv").load("/pension/reservation.do")
-        		});
-            	
-            	$("#resList").on("click", function(){
-        			$("#mainDiv").load("/pension/reservList")
-        		});
-            	            					            	
-                
-                var imgs = ["test06_banner1.jpg" , "test06_banner2.jpg" , "test06_banner3.jpg" , "test06_banner4.jpg"]
-                var imgIndex = 1;
-                
-                setInterval(function(){
-                    $("#img").attr("src","/resources/static/img/pension/"+imgs[imgIndex]);
-                    imgIndex++;
-                    if(imgIndex == 4){
-                        imgIndex -= 4;
-                    }
-                }, 3000);
-				
-                $("#button").on("click",function(){
-                     let name = $("#name").val();
-                     let phoneNumber = $("#phoneNumber").val();
-                       
-                     if(name == ""){
-                         alert("이름을 입력 하세요.")
-                         return;
-                     }
-                     if(phoneNumber == ""){
-	                     alert("전화번호를 입력 하세요.")
-                         return;
-                     } else if(phoneNumber.slice(0,3) != "010"){
-                         alert("010 으로 시작하는 번호만 입력 가능합니다.");
-                         return;
-                     }
-                });
-                
-            });
-        </script>
     </body>
 </html>

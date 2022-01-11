@@ -25,4 +25,8 @@ public class BookingBO {
 	public int makeBooking(Booking booking) {
 		return bookingDAO.insertBooking(booking);
 	}
+	
+	public Booking findBooking(String name, String phoneNumber) {
+		return bookingDAO.findBooking(name, phoneNumber);
+	}
 }

@@ -47,5 +47,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			,'대기중')	
 	</insert>
 	
+	<select id="findBooking"
+	parameterType="Map"
+	resultType="com.minieyes.practice.p06.model.Booking">
+		SELECT
+			`id`
+			, `name`
+			, `headcount`
+			, `day`
+			, `date`
+			, `phoneNumber`
+			, `state`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`booking`
+		WHERE
+			`name` = #{name}
+			AND `phoneNumber` = #{phoneNumber}
+	</select>
+	
+	
+	
 	
 </mapper>
