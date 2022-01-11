@@ -10,4 +10,8 @@ import com.minieyes.practice.p06.model.Booking;
 public interface BookingDAO {
 
 	public List<Booking> selectBooking();
+	
+	public int deleteBooking(int id);
+	
+	public int insertBooking(Booking booking);
 }

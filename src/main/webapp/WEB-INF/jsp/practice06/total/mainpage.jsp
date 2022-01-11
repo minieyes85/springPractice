@@ -3,7 +3,7 @@
 
 <html>
     <head>
-        <title>practice06</title>
+        <title>통나무 펜션</title>
         <meta charset="utf-8">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -39,27 +39,19 @@
 
             $(document).ready(function(){
             	
+            	$("#intro").on("click", function(){
+        			$("#mainDiv").load("/pension/main.do")
+        		});
+            	
             	$("#reservation").on("click", function(){
         			$("#mainDiv").load("/pension/reservation.do")
         		});
-				            	
-                $.datepicker.setDefaults({
-                    dateFormat: 'yy-mm-dd',
-                    prevText: '이전 달',
-                    nextText: '다음 달',
-                    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-                    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-                    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-                    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-                    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-                    showMonthAfterYear: true,
-                    yearSuffix: '년'
-                });
-
-                $.datepicker._gotoToday = function(id) {
-                    $(id).datepicker('setDate', new Date()).datepicker('hide').blur();
-                };
-
+            	
+            	$("#resList").on("click", function(){
+        			$("#mainDiv").load("/pension/reservList")
+        		});
+            	            					            	
+                
                 var imgs = ["test06_banner1.jpg" , "test06_banner2.jpg" , "test06_banner3.jpg" , "test06_banner4.jpg"]
                 var imgIndex = 1;
                 
@@ -71,71 +63,21 @@
                     }
                 }, 3000);
 				
-
-                $("input[name='isMember']").on("change",function(){
-                    if($("input[name='isMember']:checked").val() == "notMember"){
-                        $("#notMemberPanel").removeClass("d-none");
-                        $("#memberPanel").addClass("d-none");
-                    }
-
-                    if($("input[name='isMember']:checked").val() == "member"){                        
-                        $("#memberPanel").removeClass("d-none");
-                        $("#notMemberPanel").addClass("d-none");
-                    }
-                });
-
-                $("#date").datepicker({
-                    showButtonPanel: true,
-                    currentText:"오늘",
-                    closeText: "선택",
-                    minDate:0
-                });
-
                 $("#button").on("click",function(){
-                    if($("input[name='isMember']:checked").val() == "member"){
-                        let id = $("#inputId").val();
-                        let pw = $("#inputPw").val();
-                        if(id == ""){
-                            alert("아이디를 입력해주세요.")
-                            return;
-                        }
-                        if(pw == ""){
-                            alert("비밀번호를 입력해주세요.")
-                            return;
-                        }
-                        if(id != "" && pw != ""){
-                            alert(id + "님의 예약 정보를 조회 합니다.");
-                        }                        
-                    } 
-                    
-                    if($("input[name='isMember']:checked").val() == "notMember"){
-                        let name = $("#name").val();
-                        let phoneNumber = $("#phoneNumber").val();
-                        let date = $("#date").val();
-
-                        if(name == ""){
-                            alert("이름을 입력 하세요.")
-                            return;
-                        }
-
-                        if(phoneNumber == ""){
-                            alert("전화번호를 입력 하세요.")
-                            return;
-                        } else if(phoneNumber.slice(0,3) != "010"){
-                            alert("010 으로 시작하는 번호만 입력 가능합니다.");
-                            return;
-                        }
-                        if(date == ""){
-                            alert("예약을 확인할 날짜를 입력하세요.")
-                            return;
-                        }
-
-                        alert("이름 : " + name + "\n" +
-                              "전화번호 : " + phoneNumber + "\n" +
-                              "예약날짜 : " + date + "\n" +
-                              "위의 예약 정보를 조회 합니다.");
-                    }
-
+                     let name = $("#name").val();
+                     let phoneNumber = $("#phoneNumber").val();
+                       
+                     if(name == ""){
+                         alert("이름을 입력 하세요.")
+                         return;
+                     }
+                     if(phoneNumber == ""){
+	                     alert("전화번호를 입력 하세요.")
+                         return;
+                     } else if(phoneNumber.slice(0,3) != "010"){
+                         alert("010 으로 시작하는 번호만 입력 가능합니다.");
+                         return;
+                     }
                 });
                 
             });

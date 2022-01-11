@@ -22,5 +22,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			`booking`
 	</select>
 	
+	<delete id="deleteBooking"
+	parameterType="int">
+		DELETE FROM `booking`
+		WHERE (`id` = #{id})	
+	</delete>
+	
+	<insert id="insertBooking"
+	parameterType="com.minieyes.practice.p06.model.Booking">
+		INSERT INTO
+			`booking`
+			(`name`
+			, `headcount`
+			, `day`
+			, `date`
+			, `phoneNumber`
+			, `state`)
+		VALUE
+			(#{name}
+			,#{headcount}
+			,#{day}
+			,#{date}
+			,#{phoneNumber}
+			,'대기중')	
+	</insert>
+	
 	
 </mapper>

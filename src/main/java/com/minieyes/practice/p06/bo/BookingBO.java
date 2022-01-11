@@ -17,4 +17,12 @@ public class BookingBO {
 	public List<Booking> findBooking(){
 		return bookingDAO.selectBooking();
 	}
+	
+	public int removeBooking(int id) {
+		return bookingDAO.deleteBooking(id);
+	}
+	
+	public int makeBooking(Booking booking) {
+		return bookingDAO.insertBooking(booking);
+	}
 }
