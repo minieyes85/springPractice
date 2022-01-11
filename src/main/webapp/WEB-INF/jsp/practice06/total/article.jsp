@@ -104,17 +104,21 @@
 							success : function(data){
 								if(data.id == null) {
 									
-									alert("없엉");
+									alert("조회 결과가 없습니다.");
 									
 								} else {
+									let rawDate = new Date(data.date);
+									let printDate = rawDate.getFullYear() + "-"
+													+ (rawDate.getMonth() + 1) + "-"
+													+ rawDate.getDate();
 									
-									let outDate = data.date;
+									console.log(printDate);
 									
 									alert("이름 : " + data.name + "\n"
-										+ "날짜 : " + data.date + "\n"
+										+ "날짜 : " + printDate + "\n"
 										+ "일수 : " + data.day + "\n"
 										+ "인원 : " + data.headcount + "\n"
-										+ "상태 : " + data.state + "\n");
+										+ "상태 : " + data.state);
 								}
 							},
 							error : function() {
