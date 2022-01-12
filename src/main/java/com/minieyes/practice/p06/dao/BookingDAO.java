@@ -18,5 +18,5 @@ public interface BookingDAO {
 	
 	public Booking findBooking(
 			@Param("name") String name,
-			@Param("phoneNumber") String phoneNumber); 
+			@Param("phoneNumber") String phoneNumber);
 }
