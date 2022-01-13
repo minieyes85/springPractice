@@ -96,7 +96,7 @@
 					} else {
 						$.ajax({
 							method : "post",
-							url : "/pension/findBooking.do",
+							url : "/pension/findBooking.do", 
 							data : {
 								"name" : name,
 								"phoneNumber" : phoneNumber
